@@ -16,6 +16,7 @@ export class DetailFormUserComponent implements OnInit {
 
   ngOnInit() {
   }
+
   savePerson(person: PersonInterface) {
     if (person.id === 0) {
       this.addPerson.emit(person);
