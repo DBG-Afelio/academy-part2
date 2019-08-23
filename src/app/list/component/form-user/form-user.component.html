@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" formControlName="nom">
+  </div>
+  <div>
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" formControlName="prenom">
+  </div>
+  <div>
+    <label for="sexe">Sexe :</label><br>
+    <label for="sexeH">Homme :</label><input type="radio" id="sexeH" value="H" formControlName="sexe">
+    <label for="sexeF">Femme :</label><input type="radio" id="sexeF" value="F" formControlName="sexe">
+  </div>
+  <div>
+    <label for="ddn">Date de naissance :</label>
+    <input type="text" id="ddn" formControlName="ddn">
+    <span *ngIf="!this.form.get('ddn').valid && this.form.controls['ddn'].errors.pattern" >
+      Mauvais format
+    </span>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email">
+  </div>
+  <input type="submit" value="Sauvegarder">
+</form>

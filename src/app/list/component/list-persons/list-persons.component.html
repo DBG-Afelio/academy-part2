@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let person of list" >
+    <span (click)="selectPerson(person)">{{ person.firstName }}</span> -
+    <a href="#" (click)="modifyPerson(person)">modifier</a> -
+    <a href="#" (click)="deletePerson(person)">supprimer</a>
+
+    </li>
+</ul>

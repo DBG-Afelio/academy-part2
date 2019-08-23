@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <span>Nom : </span>
+    <span>{{person?.lastName}}</span>
+  </div>
+  <div>
+    <span>Prénom : </span>
+    <span>{{person?.firstName}}</span>
+  </div>
+  <div>
+    <span>Sexe : </span>
+    <span>{{person?.sexe ? 'Homme' : 'Femme'}}</span>
+  </div>
+  <div>
+    <span>Date de naissance : </span>
+    <span>{{person?.ddn | date : 'dd/MM/yyyy' }}</span>
+  </div>
+  <div>
+    <span>Email : </span>
+    <span>{{person?.email }}</span>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <app-searchbar (valuechange)='filterPersons($event)'></app-searchbar>
+  <app-list-persons [list]="people"
+    (selected)="showPerson($event)"
+    (modifyed)="updatePerson($event)"
+    (deleted)="deletePerson($event)"
+    ></app-list-persons>
+  <app-detail-form-user [person]="selectedPerson"
+    (addPerson)="addPersonToList($event)"
+    (modifyPerson)="updatePersonInList($event)"
+    ></app-detail-form-user>
+</div>
