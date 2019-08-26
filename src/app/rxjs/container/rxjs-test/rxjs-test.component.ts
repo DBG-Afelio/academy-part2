@@ -14,11 +14,11 @@ export class RxjsTestComponent implements OnInit {
     // this.service.getFirstUser().subscribe((reponse) => {
     //   console.log(reponse);
     // });
-    this.service.getOneUser(123).subscribe((reponse) => {
-      console.log('one', reponse);
+    this.service.getOneUser(12).subscribe((reponse) => {
+      console.log('réussite', reponse);
     },
-    (err)=> {
-      console.log('+++',err);
+    (err) => {
+      console.log('erreur', err.status, err.error.message);
     });
   }
 

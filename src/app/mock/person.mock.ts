@@ -46,7 +46,6 @@ const getPerson = (request: HttpRequest<any>): HttpResponse<any> => {
 };
 
 const getUnknownPerson = (request: HttpRequest<any>): HttpErrorResponse | HttpResponse<PersonInterface> => {
-  console.log(request);
   const tab = request.url.split('/');
   const id  = tab[tab.length - 1];
   const personfound = ListPerson.find((person: PersonInterface) => parseInt(id, 10) === person.id);

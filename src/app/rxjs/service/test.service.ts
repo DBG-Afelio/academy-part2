@@ -35,9 +35,10 @@ export class TestService {
   getOneUser(id: number): Observable<any>  {
     return this.http.get(`api/users/${id}`).pipe(
       catchError((err: any) => {
+        console.log('catch Error Pipe', err);
         return throwError(err);
       }),
-      tap ((elm) => console.log('--',elm))
+      tap ((elm) => console.log('api success tap',elm))
       );
   }
 }
