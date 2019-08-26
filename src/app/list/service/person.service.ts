@@ -1,6 +1,9 @@
+import { PersonInterface } from './../model/person.interface';
+import { UserBusiness } from './../model/business/user.business';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PersonInterface } from '../model/person.interface';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 
@@ -43,16 +46,21 @@ export class PersonService {
     },
   ];
 
-  constructor() {
+  constructor( private http: HttpClient) {
     const o =  new Observable<PersonInterface[]>((subscriber) => {});
 
   }
 
   getPersons(): Observable<PersonInterface[]> {
-    return new Observable<PersonInterface[]>((subscriber) => {
-      subscriber.next(this.ListPerson);
-      subscriber.complete();
-    });
+    return this.http.get<PersonInterface[]>('api/users');
+  }
+
+  getUsers(): Observable<UserBusiness[]> {
+    return this.http.get<PersonInterface[]>('api/users').pipe(
+      map((persons: PersonInterface[]) => {
+        return persons.map((person: PersonInterface) => UserBusiness.fromDTO(person));
+      })
+    );
   }
 
   getPersonsWithFilters(firstName: string, lastName: string) {

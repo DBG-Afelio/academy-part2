@@ -11,13 +11,15 @@ export class RxjsTestComponent implements OnInit {
   constructor(private service: TestService) { }
 
   ngOnInit() {
-    this.service.TestMock().subscribe();
-    this.service.TestMockError().subscribe((message) => {
-      console.log('Success', message);
+    // this.service.getFirstUser().subscribe((reponse) => {
+    //   console.log(reponse);
+    // });
+    this.service.getOneUser(123).subscribe((reponse) => {
+      console.log('one', reponse);
     },
-      (error) => console.log('--error--', error),
-      ()=> console.log('complete')
-      );
+    (err)=> {
+      console.log('+++',err);
+    });
   }
 
 }

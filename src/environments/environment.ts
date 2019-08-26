@@ -8,7 +8,8 @@ export const environment = {
     enable: true,
     all: false,
     services: {
-      getTest: true
+      getTest: true,
+      getPerson: true,
     }
   }
 };

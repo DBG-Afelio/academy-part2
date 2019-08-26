@@ -11,19 +11,22 @@ import { PersonInterface } from '../../model/person.interface';
 })
 export class ListContainerComponent implements OnInit {
   state: StateEnum;
-  people: PersonInterface[];
+  people: PersonInterface[] = [];
   selectedPerson: PersonInterface;
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
     this.getPersons();
+    this.personService.getUsers().subscribe ((users) => {
+      console.log('Users', users);
+    });
   }
 
   getPersons() {
-    this.personService.getPersons().subscribe((people: PersonInterface[]) => {
+    this.personService.getPersons().subscribe((people: any) => {
+      console.log(people);
       this.people = people;
       this.selectedPerson = this.people[0];
-      console.log('people :', this.people);
     });
   }
 

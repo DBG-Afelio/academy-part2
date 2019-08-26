@@ -1,3 +1,4 @@
+import { TestInterceptor } from './interceptor/test.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
@@ -25,11 +26,12 @@ registerLocaleData(localeFr, 'fr');
     RxjsModule,
     HttpClientModule
   ],
-  providers: [environment.mock.enable ? {
-                  provide: HTTP_INTERCEPTORS,
-                  useClass: MockHttpInterceptor,
-                  multi: true
-              } : []
+  providers: [
+    environment.mock.enable ? {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MockHttpInterceptor,
+      multi: true
+  } : []
             ],
   bootstrap: [AppComponent]
 })

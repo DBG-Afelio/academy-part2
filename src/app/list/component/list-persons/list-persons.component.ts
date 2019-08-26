@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ListPersonsComponent implements OnInit {
 
-  @Input() list: PersonInterface[];
+  @Input() list: PersonInterface[] = [];
   @Output() selected: EventEmitter<PersonInterface> = new EventEmitter<PersonInterface>();
   @Output() modifyed: EventEmitter<PersonInterface> = new EventEmitter<PersonInterface>();
   @Output() deleted: EventEmitter<PersonInterface> = new EventEmitter<PersonInterface>();
@@ -16,6 +16,8 @@ export class ListPersonsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.list);
+
   }
 
   selectPerson(person: PersonInterface) {

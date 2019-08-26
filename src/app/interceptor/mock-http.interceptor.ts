@@ -11,14 +11,12 @@ import { environment } from 'src/environments/environment';
 export class MockHttpInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       const foundMock = this.isFound(request);
-      console.log('here', mocks);
 
       if (foundMock) {
           return this.executeMock(request, foundMock.response);
       } else {
           return next.handle(request);
       }
-
     }
 
     /**
